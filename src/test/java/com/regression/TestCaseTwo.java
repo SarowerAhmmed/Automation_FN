@@ -10,6 +10,7 @@ import org.testng.Assert;
 
 import com.generic.AllMyPageTitle;
 import com.masterpagefactory.MasterPageFactory;
+import com.reports.Log;
 import com.util.ExplicitWait;
 import com.util.HighLighter;
 import com.util.TakeAppScreenShot;
@@ -27,21 +28,29 @@ public class TestCaseTwo {
 			while (true) {// never stop===> infinite time
 
 				if (pf.getAllpage().size()> 0) {
-					HighLighter.getColor(driver, pf.getAllpage().get(i), "green");
+					HighLighter.getMultiColor(driver, pf.getAllpage().get(i), i);
 					String pageName = pf.getAllpage().get(i).getText();
 					ExplicitWait.getMyWait(driver, pf.getAllpage().get(i));
 					pf.getAllpage().get(i).click();// ...............................................................Click
-					System.out.println("Click here.............");
-					
+					Log.info("Click here.............");
+					try {
+						Thread.sleep(3000);
+						ExplicitWait.getMyTitle(driver,"CNN");
+					} catch (InterruptedException e1) {
+						
+					}
+				
 					// wait...............for market
 					
-					System.out.println("Home title ="+TitleBeforeClick +"=== After Click title "+driver.getTitle() );
+					Log.info(" Page  title = "+driver.getTitle() );
 					if (driver.getTitle() != null
 							&& !driver.getTitle().contains(TitleBeforeClick)) {
+						
 						for (AllMyPageTitle myEnum : AllMyPageTitle.values()) {
 							if (pageName.toUpperCase().contains(myEnum.toString())) {
-								System.out.println("Found my Title = " + driver.getTitle());
-								TakeAppScreenShot.captureScreenShot(driver, pageName);
+								Log.info("Found my Title = " + driver.getTitle());
+								//TakeAppScreenShot.captureScreenShot(driver, pageName);
+								Log.screenShot(driver, pageName);
 								Assert.assertEquals(driver.getTitle(), myEnum.getTitle());
 							}
 						}
@@ -49,7 +58,7 @@ public class TestCaseTwo {
 					}else {
 						
 						try {
-							System.out.println("Need to wait...............");
+							Log.info("Need to wait...............");
 							Thread.sleep(3000);
 						} catch (InterruptedException e) {
 						

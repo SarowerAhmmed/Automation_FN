@@ -5,14 +5,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.excel.manager.ReturnExcelNew;
 import com.masterpagefactory.MasterPageFactory;
-import com.reports.ExtentTestManager;
 import com.reports.Log;
 import com.util.ExplicitWait;
 import com.util.HighLighter;

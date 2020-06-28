@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.generic.AllMyPageTitle;
-import com.generic.TitlePageValue;
+import com.reports.Log;
 
 public class TestCaseTwo2 {
 	
@@ -43,7 +43,7 @@ public class TestCaseTwo2 {
 					if(driver.getTitle() != null) {			
 						for(AllMyPageTitle myEnum:AllMyPageTitle.values()) {
 							if(pageName.toUpperCase().contains(myEnum.toString())) {
-							System.out.println("Found my Title = "+driver.getTitle());
+							Log.info("Found my Title = "+driver.getTitle());
 							Assert.assertEquals(driver.getTitle(), myEnum.getTitle());
 							}
 						}

@@ -2,6 +2,7 @@ package com.reports;
 
 import java.io.File;
 
+import org.apache.commons.lang3.SystemUtils;
 
 import com.aventstack.extentreports.ExtentReporter;
 import com.aventstack.extentreports.ExtentReports;
@@ -48,7 +49,7 @@ public class ExtentManager {//setup of extends report
             extent = new ExtentReports();
             //dashboad
             extent.attachReporter(new ExtentReporter[]{htmlReporter});
-          //  extent.setSystemInfo("Host Name", SystemUtils.getHostName());
+            extent.setSystemInfo("Host Name", SystemUtils.getHostName());
             extent.setSystemInfo("OS", System.getProperty("os.name"));
             extent.setSystemInfo("Java Version", System.getProperty("java.version"));
             extent.setSystemInfo("User Name", System.getProperty("user.name"));

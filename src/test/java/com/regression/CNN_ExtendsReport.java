@@ -3,7 +3,6 @@ package com.regression;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -16,32 +15,29 @@ import com.reports.ExtentTestManager;
 import com.reports.Log;
 import com.util.TakeAppScreenShot;
 
-public class CNN_Testing  {
+public class CNN_ExtendsReport extends BaseLogin {
 
 	List<String> expectedValue = new ArrayList<>();
 	ExtentTest test;
-	WebDriver driver;
+
 
 	@BeforeTest
 	public void setup() {
 		
-		test = ExtentTestManager.startTest("Setup Regression");
-		test.createNode("Empty my folder before start....");
+		test = ExtentTestManager.startTest("Regression_tc1");
+		test.assignCategory("Regression Test");
+		test.createNode("setup");
+		
 		TakeAppScreenShot.emptyScreenShotFolder();
-		test.createNode("Login Started from here.......");
-		driver= BaseLogin.login();
+		login();
 
 	}
 
 	@Test
 	public void market_02() {
-		
-		test=ExtentTestManager.getTest();//testname
-		test.assignCategory("Regression Test");
 
-		//TestCaseTwo.getTitle(driver);
-		Log.info("Hi");
-		Log.fail("My test failed");
+		TestCaseTwo.getTitle(driver);
+
 	}
 
 	@Test(dependsOnMethods = { "market_02" })
@@ -85,7 +81,7 @@ public class CNN_Testing  {
 
 		driver.quit();
 		ExtentTestManager.endTest();
-		
+	
 	}
 
 }

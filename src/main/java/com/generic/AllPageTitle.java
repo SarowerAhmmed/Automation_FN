@@ -1,14 +1,9 @@
 package com.generic;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.masterpagefactory.MasterPageFactory;
-import com.reports.ExtentManager;
-import com.reports.ExtentTestManager;
 import com.reports.Log;
 import com.util.ExplicitWait;
 

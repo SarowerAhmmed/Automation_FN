@@ -4,13 +4,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.reports.ExtentTestManager;
 import com.reports.Log;
 
 public class DriverScript {
